@@ -7,13 +7,13 @@ provider "sym" {
 }
 
 # Example Lambda function that can integrate with Sym.
-module "example_lambda" {
-  source = "../modules/example-lambda"
+module "my_lambda" {
+  source = "../modules/my-lambda"
 
   tags = var.tags
 }
 
-# Creates a Sym Runtime that can execute your Flows.
+# A Sym Runtime that executes your Flows.
 module "sym_runtime" {
   source = "../modules/sym-runtime"
 
@@ -29,7 +29,7 @@ module "lambda_access_flow" {
   source = "../modules/lambda-access-flow"
 
   flow_vars        = var.flow_vars
-  lambda_arn       = module.example_lambda.lambda_arn
+  lambda_arn       = module.my_lambda.lambda_arn
   runtime_settings = module.sym_runtime.runtime_settings
   sym_environment  = module.sym_runtime.prod_environment
   tags             = var.tags

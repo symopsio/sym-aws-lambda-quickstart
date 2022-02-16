@@ -5,7 +5,7 @@ error_channel = "#sym-errors"
 flow_vars = {
   request_channel = "#sym-requests" # Slack Channel where requests should go
 
-  approver_group = "CHANGEME" # Optional Okta group to enable approvers authz
+  approvers = "foo@myco.com,bar@myco.com" # Optional safelist of users that can approve requests
 }
 
 slack_workspace_id = "CHANGEME" # Slack Workspace where Sym is installed
