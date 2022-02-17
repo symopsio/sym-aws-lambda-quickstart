@@ -14,7 +14,7 @@ When an End-User approves an escalation request, the Sym Platform does the follo
 2. The Sym Runtime then assumes roles _again_ - this time your [Lambda Connector](https://docs.symops.com/docs/lambda-connector) IAM role. This role is trusted by the Runtime Connector and can be in the same AWS account or a different AWS account within your infrastructure.
 3. Using the Lambda Connector role, the runtime invokes one of your AWS Lambda functions.
 
-![Data Flow](docsrc/img/SymDataFlow.jpg)
+![Data Flow](docs/SymDataFlow.jpg)
 
 ### Security Considerations
 
@@ -26,7 +26,7 @@ The RuntimeConnector module ensures that we use an [external id](https://docs.aw
 
 Your engineers provision resources in both AWS and Sym. You can mix and match your Terraform resources in whatever way works best for your organization. Our default setup puts shared configurations in the `sym-runtime` module and makes it easy to add new modules for specific Flows.
 
-![Provisioning Flow](docsrc/img/SymProvisioningFlow.jpg)
+![Provisioning Flow](docs/SymProvisioningFlow.jpg)
 
 ### my-lambda module
 
