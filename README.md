@@ -4,7 +4,7 @@ A starter template to get an AWS Lambda access workflow set up for your team.
 
 ## Tutorial
 
-Check out a step-by-step tutorial [here](https://lambda.tutorials.symops.com).
+Check out a step-by-step tutorial [here](https://aws-lambda.tutorials.symops.com).
 
 ## Data Flow
 
