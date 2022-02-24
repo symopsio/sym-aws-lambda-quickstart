@@ -8,6 +8,8 @@ resource "aws_lambda_function" "this" {
   runtime = "python3.9"
 
   role = aws_iam_role.this.arn
+
+  tags = var.tags
 }
 
 resource "aws_iam_role" "this" {
@@ -23,6 +25,8 @@ resource "aws_iam_role" "this" {
     }]
     Version = "2012-10-17"
   })
+
+  tags = var.tags
 }
 
 resource "aws_iam_role_policy_attachment" "this" {
@@ -54,4 +58,6 @@ resource "aws_iam_policy" "this" {
     }]
     Version = "2012-10-17"
   })
+
+  tags = var.tags
 }
