@@ -5,7 +5,7 @@ resource "aws_lambda_function" "this" {
   s3_key    = var.s3_key
 
   handler = "handler.handle"
-  runtime = "python3.9"
+  runtime = "python3.8"
 
   role = aws_iam_role.this.arn
 

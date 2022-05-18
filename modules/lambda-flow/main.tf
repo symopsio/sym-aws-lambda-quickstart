@@ -1,11 +1,7 @@
-locals {
-  flow_name = "lambda_access"
-}
-
 # The Flow that grants users access to AWS Lambda Targets.
 resource "sym_flow" "this" {
   name  = local.flow_name
-  label = "Lambda Access"
+  label = local.flow_label
 
   template = "sym:template:approval:1.0.0"
 
@@ -24,12 +20,6 @@ resource "sym_flow" "this" {
           name     = "reason"
           type     = "string"
           required = true
-        },
-        {
-          name           = "options"
-          type           = "list"
-          required       = true
-          allowed_values = ["Option1", "Option2"]
         }
       ]
     )
@@ -49,8 +39,8 @@ resource "sym_strategy" "this" {
 resource "sym_target" "lambda" {
   type = "aws_lambda_function"
 
-  name  = "my_lambda"
-  label = "My Lambda"
+  name  = local.flow_name
+  label = local.flow_label
 
   settings = {
     arn = var.lambda_arn
@@ -76,4 +66,12 @@ resource "sym_integration" "lambda_context" {
 
   external_id = module.lambda_connector.settings.account_id
   settings    = module.lambda_connector.settings
+}
+
+locals {
+  flow_suffix  = var.sym_environment.name == "prod" ? "" : "_${var.sym_environment.name}"
+  label_suffix = var.sym_environment.name == "prod" ? "" : " [${var.sym_environment.name}]"
+
+  flow_name  = "my_lambda${local.flow_suffix}"
+  flow_label = "My Lambda${local.label_suffix}"
 }

@@ -36,9 +36,9 @@ The [`my-lambda`](modules/my-lambda) module creates an AWS Lambda function that 
 
 The [`sym-runtime`](modules/sym-runtime) creates a shared Runtime that executes all your Flows.
 
-### lambda-access-flow
+### lambda-flow
 
-The [`lambda-access-flow`](modules/lambda-access-flow) module defines the workflow that your engineers will use to invoke your Lambda function.
+The [`lambda-flow`](modules/lambda-flow) module defines the workflow that your engineers will use to invoke your Lambda function.
 
 ## About Sym
 
